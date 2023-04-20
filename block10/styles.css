@@ -1,0 +1,135 @@
+body {
+  background-color: black;
+}
+
+h1 {
+  color: white;
+}
+
+.form {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.container {
+  height: 800px;
+  margin-left: 300px;
+  margin-right: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.top-row {
+  height: 280px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.mid-row {
+  background-color: teal;
+  height: 420px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.bottom-row {
+  background-color: lightgreen;
+  height: 30px;
+}
+
+.box {
+  background-color: teal;
+  width: 100%;
+}
+
+.center-box {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+@media only screen and (max-width: 1680px) {
+  .container {
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  .circles-container {
+    height: 100px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .container {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}
+
+#short-triangle {
+  width: 0;
+  height: 0;
+  border-left: 10vw solid transparent;
+  border-right: 10vw solid transparent;
+  border-bottom: 15vw solid lightgreen;
+}
+
+#tall-triangle {
+  width: 0;
+  height: 0;
+  border-left: 15vw solid transparent;
+  border-right: 15vw solid transparent;
+  border-bottom: 25vw solid green;
+  margin-right: -100px;
+}
+
+img {
+  align-self: flex-end;
+  max-width: 100%;
+  z-index: 9;
+}
+
+.circles-container {
+  position: absolute;
+  z-index: 9;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  background: orange;
+  border-radius: 50%;
+}
+
+.circle:nth-child(1) {
+  margin-left: 400px;
+  width: 50px;
+  height: 50px;
+}
+
+.circle:nth-child(2) {
+  margin-left: 300px;
+  margin-top: 100px;
+}
+
+.circle:nth-child(3) {
+  width: 50px;
+  height: 50px;
+  margin-left: 50px;
+}
+.circle:nth-child(4) {
+  background: orangered;
+  width: 220px;
+  height: 220px;
+  margin-top: -400px;
+}

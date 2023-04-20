@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Painting</title>
+  </head>
+  <body>
+    <form action="action.html" class="form">
+      <label for="fname">First Name: </label>
+      <input type="text" id="fname" name="fname" placeholder="Bob" />
+
+      <label for="lname">Last Name: </label>
+      <input type="text" id="lname" name="lname" placeholder="Ross" />
+
+      <label for="email">Email: </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="HappyTrees@email.com"
+      />
+      <button type="submit" value="submit" onclick="alertFunction()">
+        Submit
+      </button>
+    </form>
+
+    <div class="container">
+      <div class="circles-container">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+
+      <div class="top-row">
+        <div class="box"></div>
+        <div class="box center-box"></div>
+        <div class="box"></div>
+      </div>
+      <div class="mid-row">
+        <div class="people">
+          <img src="people.png" alt="image of people not found" />
+        </div>
+        <div class="people">
+          <img src="people.png" alt="image of people not found" />
+        </div>
+        <div id="tall-triangle"></div>
+        <div id="short-triangle"></div>
+      </div>
+      <div class="bottom-row"></div>
+    </div>
+  </body>
+</html>

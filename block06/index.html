@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheet.css" />
+    <title>Grocery List</title>
+    <!--internal css example-->
+    <style>
+      h1 {
+        color: white;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--inline css example-->
+    <header
+      style="
+        background-color: #ae14c7;
+        margin: -40px -20px 0 -20px;
+        padding-bottom: 2px;
+        padding-top: 2px;
+        font-size: 30px;
+      "
+    >
+      <h1>Grocery List</h1>
+    </header>
+    <main>
+      <!--pantry items-->
+      <h2 class="content-header">Pantry Items</h2>
+      <!--canned section-->
+      <div class="row">
+        <section class="items-box">
+          <h3>Canned</h3>
+          <ul>
+            <li>Corn</li>
+            <li>Tuna</li>
+            <li>Green Beans</li>
+            <li>Beans</li>
+          </ul>
+        </section>
+        <!--dry section-->
+        <section class="items-box">
+          <h3>Dry Goods</h3>
+          <ul>
+            <li>Corn</li>
+            <li>Tuna</li>
+            <li>Green Beans</li>
+            <li>Beans</li>
+          </ul>
+        </section>
+        <section class="items-box">
+          <div class="image-container">
+            <img src="./images/pantry.jpg" alt="no image of pantry found" />
+          </div>
+        </section>
+      </div>
+
+      <!--freezer items-->
+      <h2 class="content-header">Freezer Items</h2>
+      <!--veggies section-->
+      <div class="row">
+        <section class="items-box">
+          <h3>Veggies</h3>
+          <ol>
+            <li>Broccoli</li>
+            <li>Carrots</li>
+            <li>Cauliflower</li>
+            <li>Bell Peppers</li>
+          </ol>
+        </section>
+        <!--Snacks section-->
+        <section class="items-box">
+          <h3>Snacks</h3>
+          <ol>
+            <li>Chicken Nuggets</li>
+            <li>Hot Pockets</li>
+            <li>Fries</li>
+            <li>Tator Tots</li>
+          </ol>
+        </section>
+        <section class="items-box">
+          <div class="image-container">
+            <img src="./images/freezer.jpg" alt="no image of freezer found" />
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

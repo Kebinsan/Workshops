@@ -1,0 +1,17 @@
+body {
+  background-color: black;
+}
+
+.message {
+  color: #465352;
+  text-align: center;
+  font-size: 18px;
+  margin: 30px 150px 30px 150px;
+}
+
+.combo {
+  color: white;
+  text-align: center;
+  margin-top: 10%;
+  font-size: 14px;
+}

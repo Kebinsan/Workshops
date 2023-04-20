@@ -1,0 +1,10 @@
+message = You have received this message because you have been 
+	chosen to open an important vault. Here is the secret combination: "
+
+x = 130 % 20
+y = 4 * 10
+z = 38 + 1
+
+combo = x "-" y "-" z
+
+print combo
