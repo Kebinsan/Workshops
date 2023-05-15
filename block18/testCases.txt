@@ -1,0 +1,28 @@
+1. MULTIPLICATION FUNCTION:
+    A function called "multiplication" should return the product of two numbers
+    - Expect multiplication(5, 10) to be a number
+    - Expect multiplication(5, 10) to be equal to 50
+    - Expect multiplication("five", 10) to be an error
+
+2. CONCATODDS FUNCTION:
+    A function called "concatOdds" should take two arrays of numbers and return an array
+    of only odd numbers from both arrays
+    - Expect concatOdds([3,2 1], [9, 1, 1, 1, 4, 15, -1]) to be an array of numbers
+    - Expect concatOdds([3,2 1], [9, 1, 1, 1, 4, 15, -1]) to be [-1, 1, 3, 9, 15]
+    - Expect concatOdds("Hello", [9, 1, 1, 1, 4, 15, -1]) to be an error
+    - Expect concatOdds([8,2 4], [2, 4, 6, 4, -8, 10, -2]) to be an empty array
+    - Expect concatOdds([3,2 1], [9, "one", 1, 1, 4, 15, -1]) to be an error
+
+3. FUNCTIONAL TEST: SHOPPING CART CHECKOUT:
+    - bA person should be able to log into an account and checkout their cart, or checkout their 
+    their cart as a guest (without an account)
+    - If the person's cart is empty, it the webpage should display that the cart is empty and the person
+    will be unable to checkout
+    - If the person's cart is not empty, it should display all the items and allow the person to continue 
+    checking out
+    - When the person continues to checkout, the next page should display a form to enter their payment and
+    shipping information, and a way to complete the purchase
+    - If an important field is missing or has invalid data, the page should display an error and highlight
+    which field the error occurred one
+    - If all the information is correct, when the person submits their order it should bring them to a page
+    displaying confirmation and a summary of their order

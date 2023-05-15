@@ -1,0 +1,22 @@
+body {
+  background-color: black;
+}
+
+#root {
+  color: white;
+}
+
+h1 {
+  text-align: center;
+}
+
+ul {
+  text-align: center;
+  list-style-position: inside;
+  margin-top: 100px;
+  font-size: 20px;
+}
+
+li {
+  margin-top: 20px;
+}
