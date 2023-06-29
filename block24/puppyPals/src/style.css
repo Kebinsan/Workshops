@@ -1,0 +1,41 @@
+body {
+  background-color: slategrey;
+}
+
+.App {
+  flex-direction: column;
+}
+.puppies {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.puppy-name {
+  color: black;
+  margin: 20px;
+  font-weight: bold;
+  font-size: 1.2em;
+  transition: 0.3s;
+}
+
+.puppy-name:hover {
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.feat-pup {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
+.feat-pup ul {
+  list-style-type: none;
+}
+
+.feat-pup h2 {
+  border-style: none solid none none;
+  padding-right: 10px;
+  margin-right: -22px;
+  border-width: 1px;
+}
