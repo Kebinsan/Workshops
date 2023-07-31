@@ -7,41 +7,50 @@ export default function SignUpForm({ setToken }) {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    try {
-      const response = await fetch(
-        "https://fsa-jwt-practice.herokuapp.com/signup",
-        {
-          method: "POST",
-          body: JSON.stringify(username, password),
-        }
-      );
-      const result = await response.json();
-      setToken(result.token);
-    } catch (error) {
-      setError(error.message);
+    if (FormValidation()) {
+      try {
+        const response = await fetch(
+          "https://fsa-jwt-practice.herokuapp.com/signup",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username: username, password: password }),
+          }
+        );
+        const result = await response.json();
+        setToken(result.token);
+      } catch (error) {
+        setError(error.message);
+      }
     }
   }
 
+  /*validates the username and password. Username and password cannot be empty. username must be between
+  6 and 18 characters in length. Password must be greater than 8 characters.
+  */
   function FormValidation() {
-    const usernameRegex = /^[A-Za-z][A-Za-z0-9_]{7,29}$/;
-    const passwordRegex =
-      /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[a-zA-Z!#$%&? "])[a-zA-Z0-9!#$%&?]{8,20}$/;
-    const message = "";
-    if (!usernameRegex.test(username)) {
-      message +=
-        "invalid username. Username should be 4 to 16 characters long and can only contain letters, numbers, underscores, and hyphens.";
+    let message = "";
+    if (!username) {
+      message += "username cannot be empty. ";
+    } else if (username.length < 6 || username.length > 18) {
+      message += "Username must have between 6 and 18 characters. ";
     }
-    if (!passwordRegex.test(password)) {
-      message +=
-        "Invalid password. Password should be at least 8 characters long and contain at least one letter and one number.";
+    if (!password) {
+      message += "password cannot be empty. ";
+    } else if (password.length < 8) {
+      message += "Password must be at least 8 characters long. ";
     }
-    if (message === "") {
-      return true;
-    } else {
+    if (message) {
       setError(message);
       return false;
+    } else {
+      setError(null);
+      return true;
     }
   }
+
   return (
     <>
       <h1>Sign up</h1>
@@ -54,6 +63,7 @@ export default function SignUpForm({ setToken }) {
             onChange={(e) => setUsername(e.target.value)}
           />
         </label>
+        <br></br>
         <label>
           Password:{" "}
           <input
@@ -61,7 +71,8 @@ export default function SignUpForm({ setToken }) {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <button>submit</button>
+        <br></br>
+        <button className="submit-button">submit</button>
       </form>{" "}
     </>
   );

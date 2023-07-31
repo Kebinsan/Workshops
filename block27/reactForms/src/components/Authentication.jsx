@@ -3,7 +3,6 @@ import { React, useState } from "react";
 export default function Authentication({ token }) {
   const [successMessage, setSuccessMessage] = useState(null);
   const [error, setError] = useState(null);
-  console.log(token);
   async function handleClick() {
     try {
       const response = await fetch(
@@ -16,10 +15,11 @@ export default function Authentication({ token }) {
           },
         }
       );
-      console.log(response);
       const result = await response.json();
       console.log(result);
-      setSuccessMessage(result.message);
+      setSuccessMessage(
+        result.message + " Welcome " + result.data.username + "!"
+      );
     } catch (error) {
       setError(error.message);
     }
@@ -28,9 +28,11 @@ export default function Authentication({ token }) {
   return (
     <>
       <h1>Authentication</h1>
+      <button className="auth-button" onClick={handleClick}>
+        Authenticate Token
+      </button>
       {successMessage && <p>{successMessage}</p>}
       {error && <p>{error}</p>}
-      <button onClick={handleClick}>Authenticate Token</button>
     </>
   );
 }
