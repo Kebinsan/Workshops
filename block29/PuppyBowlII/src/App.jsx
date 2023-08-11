@@ -2,19 +2,13 @@ import react from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import NewPlayerForm from "./components/NewPlayerForm";
 import AllPLayers from "./components/AllPlayers";
-import SinglePlayer from "./components/SinglePlayer";
+import SinglePlayer from "./components/playerDetails";
 
-function App() {
+export default function App() {
   return (
-    <div id="container">
-      <div id="new-player-form">
-        <NewPlayerForm />
-      </div>
-      <div id="all-players-container">
-        <AllPLayers />
-      </div>
-    </div>
+    <>
+      <NewPlayerForm />
+      <AllPLayers />
+    </>
   );
 }
-
-export default App;
