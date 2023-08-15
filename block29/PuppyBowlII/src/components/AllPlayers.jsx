@@ -1,35 +1,23 @@
-import { React, useState, useEffect } from "react";
-import { fetchAllPlayers } from "../API";
+import { React } from "react";
 import Player from "./Player";
 
-export default function AllPLayers() {
-  const [allPlayers, setAllPlayers] = useState([]);
-
-  useEffect(() => {
-    const getAllPlayers = async () => {
-      try {
-        const result = await fetchAllPlayers();
-        setAllPlayers(result);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getAllPlayers();
-  }, []);
-
+export default function AllPLayers({ allPlayers }) {
   return (
-    <div id="all-players-container">
-      {allPlayers.map((player) => {
-        return (
-          <Player
-            key={player.id}
-            id={player.id}
-            name={player.name}
-            breed={player.breed}
-            imageUrl={player.imageUrl}
-          />
-        );
-      })}
-    </div>
+    <>
+      <h1 className="page-header">Roster</h1>
+      <div id="all-players-container">
+        {allPlayers.map((player) => {
+          return (
+            <Player
+              key={player.id}
+              id={player.id}
+              name={player.name}
+              breed={player.breed}
+              imageUrl={player.imageUrl}
+            />
+          );
+        })}
+      </div>
+    </>
   );
 }

@@ -23,51 +23,54 @@ export default function NewPlayerForm() {
   };
 
   return (
-    <div id="new-player-form">
-      {error && <p>{error}</p>}
-      <form id="new-player" onSubmit={handleSubmit}>
-        <h2>Add New Player</h2>
-        <label>
-          Name: {""}
-          <input
-            name="name"
-            onChange={(event) => setName(event.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Breed: {""}
-          <input
-            name="breed"
-            onChange={(event) => setBreed(event.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Status: {""}
-          <select
-            id="status"
-            name="name"
-            size="2"
-            onChange={(event) => setStatus(event.target.value)}
-            required
-          >
-            <option value="bench">Bench</option>
-            <option value="field">Field</option>
-          </select>
-        </label>
-        <div className="imageUrl">
+    <>
+      <h1 className="page-header">Add New Player</h1>
+      <div id="new-player-form">
+        {error && <p>{error}</p>}
+        <form id="new-player" onSubmit={handleSubmit}>
           <label>
-            Image: {""}
+            Name: {""}
             <input
-              name="imageUrl"
-              onChange={(event) => setImageUrl(event.target.value)}
-            ></input>
+              name="name"
+              onChange={(event) => setName(event.target.value)}
+              required
+            />
           </label>
-        </div>
-        <button className="submit-button">submit</button>
-      </form>{" "}
-      {""}
-    </div>
+          <label>
+            Breed: {""}
+            <input
+              name="breed"
+              onChange={(event) => setBreed(event.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Status: {""}
+            <select
+              id="status"
+              name="name"
+              size="2"
+              onChange={(event) => setStatus(event.target.value)}
+              required
+            >
+              <option value="bench">Bench</option>
+              <option value="field">Field</option>
+            </select>
+          </label>
+          <div className="imageUrl">
+            <label>
+              Image: {""}
+              <input
+                name="imageUrl"
+                onChange={(event) => setImageUrl(event.target.value)}
+              ></input>
+            </label>
+          </div>
+          <div>
+            <button className="submit-button">submit</button>
+          </div>
+        </form>
+      </div>
+    </>
   );
 }

@@ -6,24 +6,33 @@
 }
 
 body {
-  background-color: #ffcd6a;
+  background-color: #fcb838;
 }
 
-header {
+.page-header {
+  text-align: center;
+  font-size: 4em;
+}
+
+.nav-element {
+  color: rgb(255, 218, 162);
+  font-size: 2em;
+  text-decoration: none;
+}
+
+/*nav bar styling*/
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(22, 80, 225);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.nav-element {
   margin-left: 20px;
-  color: rgb(255, 255, 255);
-  font-size: 25px;
-  margin-bottom: -50px;
-  -webkit-text-stroke: 0.1px black;
-  text-shadow: 2px 2px #084a84;
-}
-
-@media (max-width: 700px) {
-  header {
-    margin-left: 0;
-    margin-bottom: 0;
-    text-align: center;
-  }
+  margin-right: 20px;
 }
 
 /* All player styling */
@@ -45,12 +54,9 @@ header {
   width: 280px;
   margin: 15px;
   text-align: center;
-  background-color: #ffe8bb;
+  background-color: #ffdc97;
   font-size: 20px;
-  border-style: solid;
-  border-radius: 8%;
-  border-width: 2px;
-  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.315);
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
 }
 
 .player h3 {
@@ -76,7 +82,7 @@ header {
   border-width: 2px;
   margin-top: 30px;
   background-color: #ffe8bb;
-  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.315);
+  box-shadow: 5px 10px 5px rgba(0, 0, 0, 0);
 }
 
 .player-details .player-img {
@@ -128,30 +134,29 @@ button {
 }
 
 .submit-button {
-  background-color: #4ab9fd;
+  font-size: 25px;
+  color: white;
+  background-color: rgb(22, 80, 225);
   padding: 6px 18px;
   transition: 0.5s;
   transition-timing-function: ease-out;
+  align-items: flex-end;
 }
 
 .submit-button:hover {
-  background-color: #1a8ed6;
+  background-color: rgb(15, 58, 166);
   padding: 6px 18px;
   transition: 0.5s;
   transition-timing-function: ease-out;
 }
 
 /* form styling */
-form {
-  margin-top: 20px;
+#new-player-form {
+  margin-top: 50px;
   text-align: center;
 }
 
-input,
-select {
-  margin-right: 10px;
-}
-
-.button-container {
-  margin-top: 20px;
+#new-player {
+  display: flex;
+  flex-direction: column;
 }
