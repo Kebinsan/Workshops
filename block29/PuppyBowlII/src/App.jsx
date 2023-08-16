@@ -30,10 +30,11 @@ export default function App() {
         <Link to="/roster" className="nav-element">
           Roster
         </Link>
-
-        <Link to="/register" className="nav-element">
-          register
-        </Link>
+        <div className="regAlign">
+          <Link to="/register" className="nav-element">
+            register
+          </Link>
+        </div>
       </nav>
       <Routes>
         <Route

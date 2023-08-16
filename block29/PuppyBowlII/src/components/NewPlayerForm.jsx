@@ -24,13 +24,14 @@ export default function NewPlayerForm() {
 
   return (
     <>
-      <h1 className="page-header">Add New Player</h1>
       <div id="new-player-form">
         {error && <p>{error}</p>}
         <form id="new-player" onSubmit={handleSubmit}>
+          <h1 className="page-header">Add New Player</h1>
           <label>
             Name: {""}
             <input
+              className="form-element"
               name="name"
               onChange={(event) => setName(event.target.value)}
               required
@@ -39,6 +40,7 @@ export default function NewPlayerForm() {
           <label>
             Breed: {""}
             <input
+              className="form-element"
               name="breed"
               onChange={(event) => setBreed(event.target.value)}
               required
@@ -47,7 +49,7 @@ export default function NewPlayerForm() {
           <label>
             Status: {""}
             <select
-              id="status"
+              className="form-element"
               name="name"
               size="2"
               onChange={(event) => setStatus(event.target.value)}
@@ -61,6 +63,7 @@ export default function NewPlayerForm() {
             <label>
               Image: {""}
               <input
+                className="form-element"
                 name="imageUrl"
                 onChange={(event) => setImageUrl(event.target.value)}
               ></input>

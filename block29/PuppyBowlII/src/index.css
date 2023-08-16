@@ -9,22 +9,11 @@ body {
   background-color: #fcb838;
 }
 
-.page-header {
-  text-align: center;
-  font-size: 4em;
-}
-
-.nav-element {
-  color: rgb(255, 218, 162);
-  font-size: 2em;
-  text-decoration: none;
-}
-
 /*nav bar styling*/
 nav {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   background-color: rgb(22, 80, 225);
   padding-top: 20px;
   padding-bottom: 20px;
@@ -32,7 +21,24 @@ nav {
 
 .nav-element {
   margin-left: 20px;
-  margin-right: 20px;
+  margin-right: 30px;
+  color: rgb(255, 218, 162);
+  font-size: 2em;
+  text-decoration: none;
+  transition: 0.3s;
+  transition-timing-function: ease-out;
+}
+
+.nav-element:hover {
+  color: rgb(165, 141, 105);
+  transition: 0.3s;
+  transition-timing-function: ease-out;
+}
+
+.regAlign {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* All player styling */
@@ -47,6 +53,11 @@ nav {
   #all-players-container {
     justify-content: center;
   }
+}
+
+.page-header {
+  text-align: center;
+  font-size: 3em;
 }
 
 .player {
@@ -140,7 +151,7 @@ button {
   padding: 6px 18px;
   transition: 0.5s;
   transition-timing-function: ease-out;
-  align-items: flex-end;
+  margin-top: 30px;
 }
 
 .submit-button:hover {
@@ -153,10 +164,34 @@ button {
 /* form styling */
 #new-player-form {
   margin-top: 50px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 #new-player {
   display: flex;
   flex-direction: column;
+  align-content: center;
+  text-align: center;
+  border-style: solid;
+  border-radius: 8%;
+  border-width: 2px;
+  margin-top: 30px;
+  background-color: #ffe8bb;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+  height: 400px;
+  width: 500px;
+}
+
+label {
+  margin-top: 20px;
+}
+
+input {
+  width: 70%;
+  padding-right: 20px;
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
