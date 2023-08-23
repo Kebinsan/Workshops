@@ -6,7 +6,8 @@
 }
 
 body {
-  background-color: #fcb838;
+  background-color: #ffc862;
+  height: 100%;
 }
 
 /*nav bar styling*/
@@ -14,16 +15,16 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  background-color: rgb(22, 80, 225);
-  padding-top: 20px;
-  padding-bottom: 20px;
+  background-color: rgb(41, 93, 223);
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .nav-element {
   margin-left: 20px;
-  margin-right: 30px;
+  margin-right: 20px;
   color: rgb(255, 218, 162);
-  font-size: 2em;
+  font-size: 1.8em;
   text-decoration: none;
   transition: 0.3s;
   transition-timing-function: ease-out;
@@ -84,24 +85,24 @@ nav {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
   align-content: center;
   height: 400px;
-  width: 800px;
-  border-style: solid;
-  border-radius: 8%;
-  border-width: 2px;
-  margin-top: 30px;
-  background-color: #ffe8bb;
-  box-shadow: 5px 10px 5px rgba(0, 0, 0, 0);
+  padding: 10px;
 }
 
+.details-btn {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .player-details .player-img {
-  height: 50em;
   width: 300px;
   height: 80%;
   object-fit: cover;
-  margin-right: 50px;
+}
+
+.details-text {
+  width: 300px;
 }
 
 .team {
@@ -194,4 +195,128 @@ input {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+}
+
+/* Popup style */
+.popup-box {
+  position: fixed;
+  background: #00000050;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.box {
+  overflow: hidden;
+  vertical-align: top;
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+  height: auto;
+  max-height: 70vh;
+  margin-top: calc(100vh - 85vh - 20px);
+  background: #ffdc97;
+}
+
+.close-icon {
+  content: "x";
+  cursor: pointer;
+  position: fixed;
+  right: calc(24.5% - 0px);
+  top: calc(100vh - 85vh - 33px);
+  background-color: rgb(22, 80, 225);
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  line-height: 20px;
+  text-align: center;
+  border: 1px solid;
+  color: rgb(255, 218, 162);
+  font-size: 20px;
+}
+
+.welcome-container {
+  text-align: center;
+  overflow: hidden;
+  vertical-align: top;
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  height: auto;
+
+  margin-top: calc(90vh - 85vh - 20px);
+}
+
+.home-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+@media (max-width: 636px) {
+  .home-button-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.home-buttons {
+  margin-top: 10px;
+  background-color: rgb(22, 80, 225);
+  font-size: 20px;
+  color: #ffdc97;
+}
+
+.home-left-content {
+  margin-right: 10px;
+}
+.home-right-content {
+  margin-left: 10px;
+}
+
+.home-title {
+  margin-bottom: 30px;
+  font-size: 4em;
+}
+
+/*puppy logo animate*/
+.puppy-logo {
+  max-width: 200px;
+  animation-duration: 0.5s;
+  animation-name: animate-fade, wiggle;
+  animation-delay: 0.5s;
+  animation-fill-mode: backwards;
+}
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(20deg);
+  }
+  80% {
+    transform: rotate(-20deg);
+  }
+  90% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes animate-fade {
+  0% {
+    opacity: 0;
+    max-width: 100px;
+  }
+  100% {
+    opacity: 1;
+    max-width: 200px;
+  }
 }

@@ -9,7 +9,7 @@ export const fetchAllPlayers = async () => {
   try {
     const response = await fetch(`${APIURL}/players`);
     const result = await response.json();
-    console.log(result);
+    console.log(result.data.players);
     return result.data.players;
   } catch (err) {
     console.error("Error fetching All Players!", err);
@@ -24,8 +24,8 @@ export const fetchSinglePlayer = async (playerId) => {
   try {
     const response = await fetch(`${APIURL}/players/${playerId}`);
     const result = await response.json();
-    console.log(result);
-    return result;
+    console.log(result.data.player);
+    return result.data.player;
   } catch (error) {
     console.error(`Error fetching player #${playerId}!`, error);
   }
@@ -63,8 +63,8 @@ export const removePlayer = async (playerId) => {
       method: "DELETE",
     });
     const result = await response.json();
-    console.log(result);
-    return result;
+    console.log(result.data.player);
+    return result.data.player;
   } catch (error) {
     console.error(
       `Error, trouble removing player #${playerId} from the roster!`,

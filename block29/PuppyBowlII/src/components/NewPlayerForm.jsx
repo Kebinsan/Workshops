@@ -10,6 +10,7 @@ export default function NewPlayerForm() {
   );
   const [error, setError] = useState(null);
 
+  //submits a new player based on form entry, handles submit button
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -25,6 +26,7 @@ export default function NewPlayerForm() {
   return (
     <>
       <div id="new-player-form">
+        {/*displays error message if there was an error submitting new player*/}
         {error && <p>{error}</p>}
         <form id="new-player" onSubmit={handleSubmit}>
           <h1 className="page-header">Add New Player</h1>

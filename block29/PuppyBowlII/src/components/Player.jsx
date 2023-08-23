@@ -1,14 +1,23 @@
-import React from "react";
-import { removePlayer } from "../API";
+import { React } from "react";
 
-export default function Player({ id, name, breed, imageUrl }) {
-  const handleRemove = async () => {
-    try {
-      const response = await removePlayer(id);
-      window.location.reload();
-    } catch (error) {
-      console.error(error);
-    }
+export default function Player({
+  id,
+  setPlayerId,
+  isOpen,
+  setIsOpen,
+  name,
+  breed,
+  imageUrl,
+  handleRemove,
+}) {
+  //toggles player details pop-up open and close
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  };
+  //see details button handler
+  const handleSeeDetails = () => {
+    setPlayerId(id);
+    togglePopup();
   };
 
   return (
@@ -20,15 +29,10 @@ export default function Player({ id, name, breed, imageUrl }) {
         src={imageUrl}
         alt="Unable to find image of player"
       ></img>
-      <button
-        className="details-button"
-        onClick={() => {
-          console.log("details clicked");
-        }}
-      >
+      <button className="details-button" onClick={handleSeeDetails}>
         See Details
       </button>
-      <button className="remove-button" onClick={handleRemove}>
+      <button className="remove-button" onClick={() => handleRemove(id)}>
         Remove
       </button>
     </div>
