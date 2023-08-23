@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import Player from "./Player";
-import Popup from "./Popup";
+import PlayerDetails from "./PlayerDetails";
 import { removePlayer } from "../API";
 
 export default function AllPlayers({ allPlayers }) {
@@ -47,7 +47,7 @@ export default function AllPlayers({ allPlayers }) {
       </div>
       {/*if isOpen is true, the player details pop up displays*/}
       {isOpen && (
-        <Popup
+        <PlayerDetails
           playerId={playerId}
           handleClose={togglePopup}
           handleRemove={handleRemove}
