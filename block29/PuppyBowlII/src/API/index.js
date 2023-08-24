@@ -44,7 +44,7 @@ export const addNewPlayer = async (playerObj) => {
       body: JSON.stringify(playerObj),
     });
     const result = await response.json();
-    console.log(result);
+    console.log(result.data.newPlayer);
     return result;
   } catch (error) {
     console.error(
@@ -62,9 +62,6 @@ export const removePlayer = async (playerId) => {
     const response = await fetch(`${APIURL}/players/${playerId}`, {
       method: "DELETE",
     });
-    const result = await response.json();
-    console.log(result.data.player);
-    return result.data.player;
   } catch (error) {
     console.error(
       `Error, trouble removing player #${playerId} from the roster!`,

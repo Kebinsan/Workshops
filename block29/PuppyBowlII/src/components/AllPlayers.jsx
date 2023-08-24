@@ -16,8 +16,6 @@ export default function AllPlayers({ allPlayers }) {
   const handleRemove = async (id) => {
     try {
       const response = await removePlayer(id);
-      const result = await response.json();
-      console.log(result);
       window.location.reload();
     } catch (error) {
       console.error(error);

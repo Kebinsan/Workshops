@@ -8,6 +8,7 @@ export default function NewPlayerForm() {
   const [imageUrl, setImageUrl] = useState(
     "https://learndotresources.s3.amazonaws.com/workshop/60ad725bbe74cd0004a6cba0/puppybowl-default-dog.png"
   );
+  const [newPlayer, setNewPlayer] = useState(null);
   const [error, setError] = useState(null);
 
   //submits a new player based on form entry, handles submit button
@@ -17,7 +18,8 @@ export default function NewPlayerForm() {
       const response = await fetch(
         addNewPlayer({ name, breed, status, imageUrl })
       );
-      window.location.reload();
+      setNewPlayer(response);
+      //window.location.reload();
     } catch (error) {
       setError(error.message);
     }
@@ -76,6 +78,11 @@ export default function NewPlayerForm() {
           </div>
         </form>
       </div>
+      {newPlayer && (
+        <div>
+          <p>{newPlayer.name}</p>
+        </div>
+      )}
     </>
   );
 }
