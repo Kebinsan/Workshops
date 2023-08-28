@@ -1,19 +1,12 @@
-import { React } from "react";
-
 export default function Player({
   id,
   setPlayerId,
-  isOpen,
-  setIsOpen,
   name,
   breed,
   imageUrl,
   handleRemove,
+  togglePopup,
 }) {
-  //toggles player details pop-up open and close
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
-  };
   //see details button handler
   const handleSeeDetails = () => {
     setPlayerId(id);

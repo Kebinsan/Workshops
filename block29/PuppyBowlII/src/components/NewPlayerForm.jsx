@@ -1,7 +1,14 @@
-import { React, useState } from "react";
+import { useState } from "react";
 import { addNewPlayer } from "../API";
+import PlayerDetails from "./PlayerDetails";
+import { useNavigate } from "react-router-dom";
 
-export default function NewPlayerForm() {
+export default function NewPlayerForm({
+  isOpen,
+  togglePopup,
+  handleRemove,
+  setIsOpen,
+}) {
   const [name, setName] = useState("");
   const [breed, setBreed] = useState("");
   const [status, setStatus] = useState("");
@@ -10,16 +17,24 @@ export default function NewPlayerForm() {
   );
   const [newPlayer, setNewPlayer] = useState(null);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   //submits a new player based on form entry, handles submit button
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch(
-        addNewPlayer({ name, breed, status, imageUrl })
-      );
-      setNewPlayer(response);
-      //window.location.reload();
+      const result = await addNewPlayer({
+        name,
+        breed,
+        status,
+        imageUrl,
+      });
+      setNewPlayer(result);
+      togglePopup();
+      setTimeout(() => {
+        setIsOpen(false);
+        navigate("/roster");
+      }, 1800);
     } catch (error) {
       setError(error.message);
     }
@@ -78,10 +93,13 @@ export default function NewPlayerForm() {
           </div>
         </form>
       </div>
-      {newPlayer && (
-        <div>
-          <p>{newPlayer.name}</p>
-        </div>
+      {isOpen && newPlayer && (
+        <PlayerDetails
+          playerId={newPlayer.id}
+          togglePopup={togglePopup}
+          handleRemove={handleRemove}
+          isNewPlayer
+        />
       )}
     </>
   );

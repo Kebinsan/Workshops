@@ -1,7 +1,12 @@
-import { react, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchSinglePlayer } from "../API";
 
-export default function PlayerDetails({ playerId, handleClose, handleRemove }) {
+export default function PlayerDetails({
+  playerId,
+  togglePopup,
+  handleRemove,
+  isNewPlayer,
+}) {
   const [player, setPlayer] = useState(null);
 
   //gets a player with playerid passed to playerDetails from see details onclick in player component
@@ -20,13 +25,19 @@ export default function PlayerDetails({ playerId, handleClose, handleRemove }) {
   return (
     <div className="popup-box">
       <div className="box">
-        <span className="close-icon" onClick={handleClose}>
+        <span className="close-icon" onClick={togglePopup}>
           x
         </span>
         <div className="player-details">
           {/*ensure player exists from fetch before attempting to display data*/}
           {player && (
             <>
+              {isNewPlayer && (
+                <>
+                  <h2>{player.name} has been added to the roster!</h2>
+                  <br />
+                </>
+              )}
               <img
                 className="player-img"
                 src={player.imageUrl}
@@ -51,14 +62,26 @@ export default function PlayerDetails({ playerId, handleClose, handleRemove }) {
                       </p>
                     </>
                   )}
-                  <button
-                    className="remove-button details-btn"
-                    onClick={() => {
-                      handleRemove(playerId);
-                    }}
-                  >
-                    Remove
-                  </button>
+                  {/*displays undo button if its for a new added player, otherwise display remove*/}
+                  {isNewPlayer ? (
+                    <button
+                      className="remove-button details-btn"
+                      onClick={() => {
+                        handleRemove(playerId);
+                      }}
+                    >
+                      Undo
+                    </button>
+                  ) : (
+                    <button
+                      className="remove-button details-btn"
+                      onClick={() => {
+                        handleRemove(playerId);
+                      }}
+                    >
+                      Remove
+                    </button>
+                  )}
                 </div>
               </div>
             </>

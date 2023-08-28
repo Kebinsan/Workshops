@@ -24,7 +24,6 @@ export const fetchSinglePlayer = async (playerId) => {
   try {
     const response = await fetch(`${APIURL}/players/${playerId}`);
     const result = await response.json();
-    console.log(result.data.player);
     return result.data.player;
   } catch (error) {
     console.error(`Error fetching player #${playerId}!`, error);
@@ -45,7 +44,8 @@ export const addNewPlayer = async (playerObj) => {
     });
     const result = await response.json();
     console.log(result.data.newPlayer);
-    return result;
+
+    return result.data.newPlayer;
   } catch (error) {
     console.error(
       "Error, something went wrong with adding that player!",

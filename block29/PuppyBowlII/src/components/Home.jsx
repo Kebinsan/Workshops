@@ -1,10 +1,9 @@
-import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import AllPlayers from "./AllPlayers";
 import NewPlayerForm from "./NewPlayerForm";
 import puppy from "../images/puppy_logo.png";
 
-export default function Home({ allPlayers }) {
+export default function Home() {
   return (
     <div className="welcome-container">
       <h1 className="home-title">Welcome to Puppy Bowl!</h1>
@@ -24,10 +23,7 @@ export default function Home({ allPlayers }) {
         </div>
       </div>
       <Routes>
-        <Route
-          path="/roster"
-          element={<AllPlayers allPlayers={allPlayers} />}
-        />
+        <Route path="/roster" element={<AllPlayers />} />
         <Route path="/register" element={<NewPlayerForm />} />
       </Routes>
     </div>

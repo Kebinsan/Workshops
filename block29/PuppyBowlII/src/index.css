@@ -87,18 +87,19 @@ nav {
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-content: center;
-  height: 400px;
   padding: 10px;
+  max-height: 100vh;
 }
 
 .details-btn {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.player-details .player-img {
+
+.player-img {
   width: 300px;
-  height: 80%;
   object-fit: cover;
+  height: 50vh;
 }
 
 .details-text {
@@ -214,7 +215,7 @@ input {
   width: 50%;
   margin: 0 auto;
   height: auto;
-  max-height: 70vh;
+  max-height: 100vh;
   margin-top: calc(100vh - 85vh - 20px);
   background: #ffdc97;
 }
@@ -234,6 +235,18 @@ input {
   border: 1px solid;
   color: rgb(255, 218, 162);
   font-size: 20px;
+}
+
+@media (max-width: 1000px) {
+  .box {
+    width: 90%;
+    margin-top: calc(100vh - 90vh - 20px);
+  }
+
+  .close-icon {
+    right: calc(4% - 0px);
+    top: calc(100vh - 90vh - 33px);
+  }
 }
 
 .welcome-container {

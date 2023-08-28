@@ -1,26 +1,14 @@
-import { React, useState } from "react";
+import { useState } from "react";
 import Player from "./Player";
 import PlayerDetails from "./PlayerDetails";
-import { removePlayer } from "../API";
 
-export default function AllPlayers({ allPlayers }) {
+export default function AllPlayers({
+  allPlayers,
+  isOpen,
+  togglePopup,
+  handleRemove,
+}) {
   const [playerId, setPlayerId] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
-
-  //toggles player details pop-up open and close
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
-  };
-
-  //handles remove button, removes a player when clicked
-  const handleRemove = async (id) => {
-    try {
-      const response = await removePlayer(id);
-      window.location.reload();
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   return (
     <>
@@ -33,12 +21,11 @@ export default function AllPlayers({ allPlayers }) {
               key={player.id}
               id={player.id}
               setPlayerId={setPlayerId}
-              isOpen={isOpen}
-              setIsOpen={setIsOpen}
               name={player.name}
               breed={player.breed}
               imageUrl={player.imageUrl}
               handleRemove={handleRemove}
+              togglePopup={togglePopup}
             />
           );
         })}
@@ -47,7 +34,7 @@ export default function AllPlayers({ allPlayers }) {
       {isOpen && (
         <PlayerDetails
           playerId={playerId}
-          handleClose={togglePopup}
+          togglePopup={togglePopup}
           handleRemove={handleRemove}
         />
       )}
