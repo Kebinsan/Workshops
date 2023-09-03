@@ -185,11 +185,11 @@ button {
   width: 500px;
 }
 
-label {
+#new-player label {
   margin-top: 20px;
 }
 
-input {
+#new-player input {
   width: 70%;
   padding-right: 20px;
   padding: 12px 20px;
@@ -340,5 +340,33 @@ input {
   100% {
     opacity: 1;
     max-width: 200px;
+  }
+}
+
+/*Search form*/
+.search-container {
+  text-align: center;
+}
+
+.search {
+  border-radius: 20px;
+  width: 20%;
+  padding-right: 20px;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1000px) {
+  .search {
+    width: 40%;
+  }
+}
+@media (max-width: 636px) {
+  .search-container {
+    width: 100%;
+  }
+  .search {
+    width: 60%;
   }
 }

@@ -8,6 +8,10 @@ export default function NewPlayerForm({
   togglePopup,
   handleRemove,
   setIsOpen,
+  setAllPlayers,
+  allPlayers,
+  setIsNewPlayer,
+  isNewPlayer,
 }) {
   const [name, setName] = useState("");
   const [breed, setBreed] = useState("");
@@ -29,7 +33,9 @@ export default function NewPlayerForm({
         status,
         imageUrl,
       });
+      setIsNewPlayer(true);
       setNewPlayer(result);
+      setAllPlayers([...allPlayers, newPlayer]);
       togglePopup();
       setTimeout(() => {
         setIsOpen(false);
@@ -98,7 +104,7 @@ export default function NewPlayerForm({
           playerId={newPlayer.id}
           togglePopup={togglePopup}
           handleRemove={handleRemove}
-          isNewPlayer
+          isNewPlayer={true}
         />
       )}
     </>

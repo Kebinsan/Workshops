@@ -32,12 +32,6 @@ export default function PlayerDetails({
           {/*ensure player exists from fetch before attempting to display data*/}
           {player && (
             <>
-              {isNewPlayer && (
-                <>
-                  <h2>{player.name} has been added to the roster!</h2>
-                  <br />
-                </>
-              )}
               <img
                 className="player-img"
                 src={player.imageUrl}
@@ -45,6 +39,12 @@ export default function PlayerDetails({
               ></img>
               <div className="details-text">
                 <div>
+                  {isNewPlayer && (
+                    <>
+                      <h2>{player.name} has been added to the roster!</h2>
+                      <br />
+                    </>
+                  )}
                   <h2>{player.name}</h2>
                   <h3>{player.breed}</h3>
                   <p>

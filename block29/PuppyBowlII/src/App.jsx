@@ -8,19 +8,23 @@ import { fetchAllPlayers, removePlayer } from "./API";
 export default function App() {
   const [allPlayers, setAllPlayers] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [isNewPlayer, setIsNewPlayer] = useState(false);
 
   //Fetches all players from the api
   useEffect(() => {
     const getAllPlayers = async () => {
       try {
         const result = await fetchAllPlayers();
-        setAllPlayers(result);
+        if (isNewPlayer || !allPlayers.length) {
+          setAllPlayers(result);
+          setIsNewPlayer(false);
+        }
       } catch (error) {
         console.error(error);
       }
     };
     getAllPlayers();
-  }, []);
+  }, [allPlayers]);
 
   //toggles player details pop-up open and close
   const togglePopup = () => {
@@ -31,7 +35,10 @@ export default function App() {
   const handleRemove = async (id) => {
     try {
       const result = await removePlayer(id);
-      window.location.reload();
+      alert(`player with id: ${id} has been removed`);
+      setAllPlayers((previousPlayer) =>
+        previousPlayer.filter((player) => player.id !== id)
+      );
     } catch (error) {
       console.error(error);
     }
@@ -76,6 +83,10 @@ export default function App() {
               setIsOpen={setIsOpen}
               togglePopup={togglePopup}
               handleRemove={handleRemove}
+              setAllPlayers={setAllPlayers}
+              allPlayers={allPlayers}
+              setIsNewPlayer={setIsNewPlayer}
+              isNewPlayer={isNewPlayer}
             />
           }
         />
